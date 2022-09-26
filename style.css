@@ -17,10 +17,13 @@ body,html{
 .container{
     display: grid;
     grid-template-columns: repeat();
+    height: 600px;
+    width: 600px;
+    
 
 }
 .container div{
-    border: solid black;
-    height: 30px;
-    width: 50px;
+    outline: solid black 1px;
+    flex:1;
+
 }
