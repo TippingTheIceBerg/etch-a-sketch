@@ -8,7 +8,7 @@
 // 4: Once complete, this will be the default grid we start with, now make it so that the user can change the amount of grids with the button click that should open a prompt (COMPLETE)
 //      a: newly created divs are added onto previous created ones, old ones need to be removed before new ones are added.
 
-// 5: When we hover over a div, the background color should change to black from the default white and stay black when we leave it.
+// 5: When we hover over a div, the background color should change to black from the default white and stay black when we leave it.(COMPLETE)
 
 // 6: Make the colors random when we hover over them.
 
@@ -21,6 +21,7 @@ let numOfDivsToCreate = userInputGrid * userInputGrid;
 let containerCreatedDivs = 0;
 
 
+
 for(let i = 0; i < numOfDivsToCreate; i++){
 containerCreatedDivs = document.createElement("div")
 container.appendChild(containerCreatedDivs)
@@ -30,11 +31,19 @@ container.style.cssText = `grid-template-columns: repeat(${userInputGrid},1fr);`
 
 btn.addEventListener("click",() =>{
     // container.replaceChildren is the fastest way to clear children and add news ones, in this case, we just wanted to remove.
-container.replaceChildren();
+
 userInputGrid =  prompt("Enter your desired x by x grid");
+if(userInputGrid > 30){
+    alert("Sorry, the value must be 30 or below");
+    return;
+}
+container.replaceChildren();
 calcsNumOfDivsToMake(userInputGrid);
 createAndAppendsDivs();
+hoverGrid = document.querySelectorAll("div");
+
 })
+
 
 
 
@@ -47,6 +56,21 @@ function createAndAppendsDivs(){
     for(let i = 0; i < numOfDivsToCreate; i++){
         containerCreatedDivs = document.createElement("div")
         container.appendChild(containerCreatedDivs)
+        getDivs = document.querySelectorAll("div");
 
+        getDivs.forEach(e =>{
+            e.addEventListener("mouseover", ()=>{
+                e.style.cssText = "background-color:red"
+            })
+        })
         }
 }
+
+let getDivs = document.querySelectorAll("div");
+
+getDivs.forEach(e =>{
+    e.addEventListener("mouseover", ()=>{
+        e.style.cssText = "background-color:red"
+    })
+})
+
