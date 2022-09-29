@@ -10,7 +10,8 @@
 
 // 5: When we hover over a div, the background color should change to black from the default white and stay black when we leave it.(COMPLETE)
 
-// 6: Make the colors random when we hover over them.
+// 6: Make the colors random when we hover over them. 
+//      a: colors must retain their original color and do not change over each re-hover.
 
 // 7: Make it so the colors become darker over each pass with retaining that random color.
 
@@ -24,6 +25,7 @@ let containerCreatedDivs = 0;
 
 for(let i = 0; i < numOfDivsToCreate; i++){
 containerCreatedDivs = document.createElement("div")
+containerCreatedDivs.style.cssText = ""
 container.appendChild(containerCreatedDivs)
 }
 
@@ -57,10 +59,14 @@ function createAndAppendsDivs(){
         containerCreatedDivs = document.createElement("div")
         container.appendChild(containerCreatedDivs)
         getDivs = document.querySelectorAll("div");
+        
 
         getDivs.forEach(e =>{
             e.addEventListener("mouseover", ()=>{
-                e.style.cssText = "background-color:red"
+                randomColor1 = Math.floor(Math.random()*365)
+                randomColor2 = Math.floor(Math.random()*365)
+                randomColor3 = Math.floor(Math.random()*365)
+                e.style.cssText =  `background-color: rgb(${randomColor1},${randomColor2},${randomColor3})`
             })
         })
         }
@@ -70,7 +76,10 @@ let getDivs = document.querySelectorAll("div");
 
 getDivs.forEach(e =>{
     e.addEventListener("mouseover", ()=>{
-        e.style.cssText = "background-color:red"
+        let randomColor1 = Math.floor(Math.random()*365)
+        let randomColor2 = Math.floor(Math.random()*365)
+        let randomColor3 = Math.floor(Math.random()*365)
+        e.style.cssText =  `background-color: rgb(${randomColor1},${randomColor2},${randomColor3})`
     })
 })
 
