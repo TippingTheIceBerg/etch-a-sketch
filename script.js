@@ -62,12 +62,19 @@ function createAndAppendsDivs(){
         
 
         getDivs.forEach(e =>{
-            e.addEventListener("mouseover", ()=>{
-                randomColor1 = Math.floor(Math.random()*365)
-                randomColor2 = Math.floor(Math.random()*365)
-                randomColor3 = Math.floor(Math.random()*365)
-                e.style.cssText =  `background-color: rgb(${randomColor1},${randomColor2},${randomColor3})`
-            })
+            let att = e.getAttribute('style')
+    
+
+                e.addEventListener("mouseover", ()=>{
+                    randomColor1 = Math.floor(Math.random()*365)
+                    randomColor2 = Math.floor(Math.random()*365)
+                    randomColor3 = Math.floor(Math.random()*365)
+                    if(e.style.backgroundColor){
+                    return;
+                    }
+                    e.style.cssText =  `background-color: rgb(${randomColor1},${randomColor2},${randomColor3})`
+                })
+            
         })
         }
 }
@@ -79,6 +86,9 @@ getDivs.forEach(e =>{
         let randomColor1 = Math.floor(Math.random()*365)
         let randomColor2 = Math.floor(Math.random()*365)
         let randomColor3 = Math.floor(Math.random()*365)
+        if(e.style.backgroundColor){
+            return;
+            }
         e.style.cssText =  `background-color: rgb(${randomColor1},${randomColor2},${randomColor3})`
     })
 })
