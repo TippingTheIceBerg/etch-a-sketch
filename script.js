@@ -15,13 +15,16 @@
 //      a: colors must retain their original color and do not change over each re-hover. (COMPLETE)
 
 
-// 7: Make it so the colors become darker over each pass with retaining that random color.
+// 7: Make it so the colors become darker over each pass with retaining that random color. (IN PROGRESS)
+//      a: get the opacity of whatever the div is and increase it by a set value
+//      b: make sure the added values are only applied to each div uniquely, if div 1 is entered three times it should be .3, enter div 2 only once, opacity should be .1
 
 let container = document.querySelector(".container")
 let btn = document.querySelector(".btn__newGrid")
 let userInputGrid = 6;
 let numOfDivsToCreate = userInputGrid * userInputGrid;
 let containerCreatedDivs = 0;
+let opacity = .1;
 
 
 
@@ -69,14 +72,16 @@ function createAndAppendsDivs(){
         getDivs.forEach(e =>
     
             e.addEventListener("mouseover", ()=>{
-            
-                // if(e.style.backgroundColor){
-                // return;
-                // }
+                if(e.style.opacity < 1){
+                    e.style.opacity = `${+e.style.opacity + .1}`
+                }
+                if(e.style.backgroundColor){
+                return;
+                }
                 randomColor1 = Math.floor(Math.random()*365)
                  randomColor2 = Math.floor(Math.random()*365)
                 randomColor3 = Math.floor(Math.random()*365)
-                e.style.cssText =  `background-color: rgb(${randomColor1} ${randomColor2} ${randomColor3})`
+                e.style.cssText =  `background-color: rgb(${randomColor1} ${randomColor2} ${randomColor3});opacity:${opacity}`
                 
             })
         
@@ -90,10 +95,13 @@ getDivs.forEach(e =>{
         let randomColor1 = Math.floor(Math.random()*365)
         let randomColor2 = Math.floor(Math.random()*365)
         let randomColor3 = Math.floor(Math.random()*365)
+        if(e.style.opacity < 1){
+            e.style.opacity = `${+e.style.opacity + .1}`
+        }
         if(e.style.backgroundColor){
             return;
             }
-        e.style.cssText =  `background-color: rgb(${randomColor1},${randomColor2},${randomColor3})`
+        e.style.cssText =  `background-color: rgb(${randomColor1},${randomColor2},${randomColor3}); opacity:${opacity};`
     })
 })
 
