@@ -102,6 +102,6 @@ getDivs.forEach(e =>{
             return;
             }
         e.style.cssText =  `background-color: rgb(${randomColor1},${randomColor2},${randomColor3}); opacity:${opacity};`
-g    })
+    })
 })
 
