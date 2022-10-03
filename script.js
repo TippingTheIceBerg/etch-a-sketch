@@ -15,7 +15,7 @@
 //      a: colors must retain their original color and do not change over each re-hover. (COMPLETE)
 
 
-// 7: Make it so the colors become darker over each pass with retaining that random color. (IN PROGRESS)
+// 7: Make it so the colors become darker over each pass with retaining that random color. (COMPLETE)
 //      a: get the opacity of whatever the div is and increase it by a set value
 //      b: make sure the added values are only applied to each div uniquely, if div 1 is entered three times it should be .3, enter div 2 only once, opacity should be .1
 
@@ -102,6 +102,6 @@ getDivs.forEach(e =>{
             return;
             }
         e.style.cssText =  `background-color: rgb(${randomColor1},${randomColor2},${randomColor3}); opacity:${opacity};`
-    })
+g    })
 })
 
